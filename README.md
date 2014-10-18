@@ -1,5 +1,12 @@
 Vibe API
 ========
+[![Gem Version](https://badge.fury.io/rb/vibe.png)][gem]
+[![Dependency Status](https://gemnasium.com/amalfra/vibe.png)][gemnasium]
+[![Code Climate](https://codeclimate.com/github/amalfra/vibe.png)][codeclimate]
+
+[gem]: http://badge.fury.io/rb/vibe
+[gemnasium]: https://gemnasium.com/amalfra/vibe
+[codeclimate]: https://codeclimate.com/github/amalfra/vibe
 
 A Ruby wrapper for the Vibe REST API.
 
