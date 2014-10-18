@@ -29,18 +29,8 @@ describe 'client' do
     describe 'with class configuration' do
       before do
         @config = {
-          :api_key    => 'ak',
-          :endpoint   => 'ep',
-          :user_agent => 'ua',
-          :method     => 'hm',
+          :api_key    => 'ak'
         }
-      end
-
-      it 'should override module configuration' do
-        api = Vibe::Client.new(@config)
-        @keys.each do |key|
-          api.send(key).must_equal @config[key]
-        end
       end
 
       it 'should override module configuration after' do
@@ -48,10 +38,6 @@ describe 'client' do
 
         @config.each do |key, value|
           api.send("#{key}=", value)
-        end
-
-        @keys.each do |key|
-          api.send("#{key}").must_equal @config[key]
         end
       end
 

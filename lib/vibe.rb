@@ -1,6 +1,6 @@
-require "vibe/version"
-require "vibe/configuration"
-require "vibe/client"
+%w{version error configuration client}.each do |local|
+  require "vibe/#{local}"
+end
 
 module Vibe
   extend Configuration
