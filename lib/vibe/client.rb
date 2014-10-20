@@ -24,11 +24,21 @@ module Vibe
 
     # Get Data from an Email
     def get_data(email)
+      if !email.is_a? String 
+        error = InvalidOptions.new(['Email(String)'], ['Email(String)'])
+        raise error
+      end
+
       get_request '/initial_data', :email => email
     end
 
     # Get Stats for API Key
     def stats(api_key = nil)
+      if api_key && (!api_key.is_a? String)
+        error = InvalidOptions.new(['API key(String)'], ['API key(String)'])
+        raise error
+      end
+
       get_request '/api_stats', :api_key => api_key
     end
 
