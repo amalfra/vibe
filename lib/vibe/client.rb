@@ -27,5 +27,10 @@ module Vibe
       get_request '/initial_data', :email => email
     end
 
+    # Get Stats for API Key
+    def stats(api_key = nil)
+      get_request '/api_stats', :api_key => api_key
+    end
+
   end # Client
 end

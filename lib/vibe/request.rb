@@ -23,7 +23,13 @@ module Vibe
 
       puts "EXECUTED: #{method} - #{path} with #{params}" if ENV['DEBUG']
 
-      params.merge!({:api_key => api_key, :user_agent => user_agent})
+      if params[:api_key]
+        new_api_key = params[:api_key]
+        params = params.tap { |hs| hs.delete(:api_key) }
+        params.merge!({:api_key => new_api_key, :user_agent => user_agent})
+      else
+        params.merge!({:api_key => api_key, :user_agent => user_agent})
+      end
 
       begin
         puts params if ENV['DEBUG']

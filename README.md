@@ -12,8 +12,6 @@ Vibe API
 
 A Ruby wrapper for the Vibe REST API. 
 
-The gem is in Alpha version and hence there may be bugs and api methods that are not implemented
-
 > Get API key here : https://vibeapp.co/dev/
 
 ## Installation
@@ -56,6 +54,8 @@ end
 
 The currently available api methods are :
  * get_data(email) - Get Data from an Email
+ * stats           - Get Stats for API Key. If API key parameter is not
+                     passed then the one in config will be used 
 
 
 ## Development
