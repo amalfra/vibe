@@ -8,17 +8,31 @@ module Vibe
 
     METHODS = [:get, :post, :put, :delete, :patch]
 
-    def get_request(path, params={})
-      request(:get, path, params)
+    def get_request(path, params = {}, cache_override = false)
+      request(:get, path, params, cache_override)
     end
 
-    def request(method, path, params)
+    def request(method, path, params, cache_override = false)
       if !METHODS.include?(method)
-	raise ArgumentError, "unkown http method: #{method}"
+	      raise ArgumentError, "unkown http method: #{method}"
+      end
+
+      # Is caching activated?
+      if cache && !cache_override
+        cache = Cache.new driver: cache_driver
+
+        # Check if cache present
+        param_string = params.map{|k,v| "#{k}-#{v}"}.join(':')
+        filename = Digest::MD5.hexdigest(method.to_s.gsub("/", "_")+path.to_s.gsub("/", "_")+param_string).freeze
+        response = cache.get(filename)
+
+        if response
+          return JSON.parse(response)
+        end
       end
 
       if !api_key
-        raise ClientError, 'API key need to be set' 
+        raise ClientError, 'API key need to be set'
       end
 
       puts "EXECUTED: #{method} - #{path} with #{params}" if ENV['DEBUG']
@@ -50,11 +64,19 @@ module Vibe
                 raise ServiceError, {:status => response.code, :method => method, :response_headers => response.headers, :url => endpoint + path, :body => "API Returned status code #{response.code}"}
               end
           else
+            # Is caching activated?
+            if cache
+              # Put into cache
+              if !cache.put(filename, response)
+                raise ClientError, 'Unable to write into Cache'
+              end
+            end
+
             JSON.parse(response)
           end
         }
       rescue SocketError => e
-        raise VibeError, 'xgcv'
+        raise VibeError, 'SocketError Occured!'
       end
 
     end

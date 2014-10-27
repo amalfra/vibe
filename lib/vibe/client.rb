@@ -7,7 +7,7 @@ module Vibe
 
     attr_accessor   *Configuration::VALID_CONFIG_KEYS
 
-    def initialize(options={}, &block)
+    def initialize(options = {}, &block)
       # Merge the config values from the module and those passed
       # to the client.
       merged_options = Vibe.options.merge(options)
@@ -15,6 +15,7 @@ module Vibe
       # Copy the merged values and ignore those
       # not part of our configuration
       Configuration::VALID_CONFIG_KEYS.each do |key|
+        puts "Setting Configuration: #{key}" if ENV['DEBUG']
         send("#{key}=", merged_options[key]) if Configuration::VALID_OPTIONS_KEYS.include? key
         send("#{key}=", Vibe.options[key]) if Configuration::VALID_CONNECTION_KEYS.include? key
       end
@@ -24,7 +25,7 @@ module Vibe
 
     # Get Data from an Email
     def get_data(email)
-      if !email.is_a? String 
+      if !email.is_a? String
         error = InvalidOptions.new(['Email(String)'], ['Email(String)'])
         raise error
       end
@@ -39,7 +40,8 @@ module Vibe
         raise error
       end
 
-      get_request '/api_stats', :api_key => api_key
+      # Disable cache for API key status calls
+      get_request('/api_stats', {:api_key => api_key}, true)
     end
 
   end # Client
