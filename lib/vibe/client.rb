@@ -24,6 +24,8 @@ module Vibe
     end
 
     # Get Data from an Email
+    #
+    # @return [String]
     def get_data(email)
       if !email.is_a? String
         error = InvalidOptions.new(['Email(String)'], ['Email(String)'])
@@ -34,6 +36,8 @@ module Vibe
     end
 
     # Get Stats for API Key
+    #
+    # @return [String]
     def stats(api_key = nil)
       if api_key && (!api_key.is_a? String)
         error = InvalidOptions.new(['API key(String)'], ['API key(String)'])

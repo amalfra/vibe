@@ -19,12 +19,16 @@ module Vibe
 
     # Get key from cache, proxies into
     # method with same name in driver class
+    #
+    # @return [Driver.get]
     def get(key = '')
       @driver.get(key)
     end
 
     # Write to cache, proxies into
     # method with same name in driver class
+    #
+    # @return [Driver.put]
     def put(key = '', data = '')
       @driver.put(key, data)
     end

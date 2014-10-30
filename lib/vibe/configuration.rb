@@ -34,6 +34,7 @@ module Vibe
       yield self
     end
 
+    # Reset config values to default
     def reset
       self.endpoint     = DEFAULT_ENDPOINT
       self.method       = DEFAULT_METHOD
@@ -46,6 +47,8 @@ module Vibe
     end
 
     # Return the configuration values set in this module
+    #
+    # @return [Hash]
     def options
       Hash[ * VALID_CONFIG_KEYS.map { |key| [key, send(key)] }.flatten ]
     end

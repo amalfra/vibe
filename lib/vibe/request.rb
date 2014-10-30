@@ -8,10 +8,17 @@ module Vibe
 
     METHODS = [:get, :post, :put, :delete, :patch]
 
+    # Perform a GET HTTP request
+    #
+    # @return [Request.request]
     def get_request(path, params = {}, cache_override = false)
       request(:get, path, params, cache_override)
     end
 
+    # Execute an HTTP request and return the result
+    # Exceptions would be raised based on HTTP status codes
+    #
+    # @return [String]
     def request(method, path, params, cache_override = false)
       if !METHODS.include?(method)
 	      raise ArgumentError, "unkown http method: #{method}"
@@ -37,6 +44,8 @@ module Vibe
 
       puts "EXECUTED: #{method} - #{path} with #{params}" if ENV['DEBUG']
 
+      # If API key is passed as a paramter then ignore the one
+      # set in config
       if params[:api_key]
         new_api_key = params[:api_key]
         params = params.tap { |hs| hs.delete(:api_key) }
@@ -48,6 +57,7 @@ module Vibe
       begin
         puts params if ENV['DEBUG']
         response = RestClient.send("#{method}", endpoint + path.gsub!(/^\//, ""), :params => params){ |response, request, result, &block|
+          # Go through redirection based on status code
           if [301, 302, 307].include? response.code
             response.follow_redirection(request, result, &block)
           elsif !response.code.between?(200, 400)
@@ -72,6 +82,7 @@ module Vibe
               end
             end
 
+            # Parse JSON response
             JSON.parse(response)
           end
         }
