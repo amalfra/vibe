@@ -10,7 +10,7 @@ Vibe API
 
 [RDocs](http://rubydoc.info/github/amalfra/vibe/master/frames)
 
-A Ruby wrapper for the Vibe REST API. 
+A Ruby wrapper for the Vibe REST API.
 
 > Get API key here : https://vibeapp.co/dev/
 
@@ -36,7 +36,7 @@ Create a new instance
 vibe = Vibe.new
 ```
 
-At this stage you can also supply the configuration parameter `:api_key` which is used throughout the API. These can be passed directly as hash options:
+At this stage you can also supply the configuration parameter `:api_key`, `:cache` which is used throughout the API. These can be passed directly as hash options:
 
 ```ruby
 vibe = Vibe.new api_key: 'api_key'
@@ -47,15 +47,21 @@ Alternatively, you can configure the Vibe settings by passing a block:
 ```ruby
 vibe = Vibe.new do |config|
   config.api_key   = 'api_key'
+  config.cache     = false # Maybe i need to turn off cache
 end
 ```
 
+## Cache
+
+The wrapper has Cache feature which would cache API response for a day. **The stats API call which is used to get the status of an API key won't be cached**. The currently supported Cache methods are:
+ * File: Stored in system temporary path.
+
 ## API
 
-The currently available api methods are :
+The currently available api methods are:
  * get_data(email) - Get Data from an Email
  * stats           - Get Stats for API Key. If API key parameter is not
-                     passed then the one in config will be used 
+                     passed then the one in config will be used
 
 
 ## Development
