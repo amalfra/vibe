@@ -37,7 +37,7 @@ describe 'client' do
         api = Vibe::Client.new
 
         @config.each do |key, value|
-          api.send("#{key}=", value)
+          api.send("#{key}=", value).must_equal value
         end
       end
 

@@ -1,7 +1,7 @@
 require 'helper'
 
 describe 'configuration' do
- 
+
   describe '.api_key' do
     it 'should return default key' do
       Vibe.api_key.must_equal Vibe::Configuration::DEFAULT_API_KEY
@@ -13,13 +13,43 @@ describe 'configuration' do
       Vibe.user_agent.must_equal Vibe::Configuration::DEFAULT_USER_AGENT
     end
   end
- 
+
   describe '.method' do
     it 'should return default http method' do
       Vibe.method.must_equal Vibe::Configuration::DEFAULT_METHOD
     end
   end
- 
+
+  describe '.endpoint' do
+   it 'should return default endpoint' do
+     Vibe.endpoint.must_equal Vibe::Configuration::DEFAULT_ENDPOINT
+   end
+  end
+
+  describe '.api_key' do
+   it 'should return default api_key' do
+     Vibe.api_key.must_equal Vibe::Configuration::DEFAULT_API_KEY
+   end
+  end
+
+  describe '.format' do
+   it 'should return default format' do
+     Vibe.format.must_equal Vibe::Configuration::DEFAULT_FORMAT
+   end
+  end
+
+  describe '.cache' do
+   it 'should return default cache' do
+     Vibe.cache.must_equal Vibe::Configuration::DEFAULT_CACHE
+   end
+  end
+
+  describe '.cache_driver' do
+   it 'should return default cache_driver' do
+     Vibe.cache_driver.must_equal Vibe::Configuration::DEFAULT_CACHE_DRIVER
+   end
+  end
+
   after do
     Vibe.reset
   end

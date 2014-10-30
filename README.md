@@ -3,10 +3,12 @@ Vibe API
 [![Gem Version](https://badge.fury.io/rb/vibe.png)][gem]
 [![Dependency Status](https://gemnasium.com/amalfra/vibe.png)][gemnasium]
 [![Code Climate](https://codeclimate.com/github/amalfra/vibe.png)][codeclimate]
+[![Travis CI](https://travis-ci.org/amalfra/vibe.svg?branch=master)][travis]
 
 [gem]: http://badge.fury.io/rb/vibe
 [gemnasium]: https://gemnasium.com/amalfra/vibe
 [codeclimate]: https://codeclimate.com/github/amalfra/vibe
+[travis]: https://travis-ci.org/amalfra/vibe.svg?branch=master
 
 [RDocs](http://rubydoc.info/github/amalfra/vibe/master/frames)
 

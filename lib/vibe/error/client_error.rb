@@ -1,5 +1,5 @@
 module Vibe
-  # Raised when Vibe returns the HTTP status code 404
+  # Raised for Errors related to Client
   module Error
     class ClientError < VibeError
       attr_reader :problem, :summary, :resolution
