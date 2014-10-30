@@ -8,7 +8,7 @@ Vibe API
 [gem]: http://badge.fury.io/rb/vibe
 [gemnasium]: https://gemnasium.com/amalfra/vibe
 [codeclimate]: https://codeclimate.com/github/amalfra/vibe
-[travis]: https://travis-ci.org/amalfra/vibe.svg?branch=master
+[travis]: https://travis-ci.org/amalfra/vibe/
 
 [RDocs](http://rubydoc.info/github/amalfra/vibe/master/frames)
 
