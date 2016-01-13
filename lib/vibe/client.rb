@@ -32,7 +32,7 @@ module Vibe
         raise error
       end
 
-      get_request '/initial_data', :email => email
+      get_request '/profile_lookup/', :person_email => email
     end
 
     # Get Stats for API Key
@@ -45,7 +45,7 @@ module Vibe
       end
 
       # Disable cache for API key status calls
-      get_request('/api_stats', {:api_key => api_key}, true)
+      get_request('/stats/', {:key => api_key}, true)
     end
 
   end # Client

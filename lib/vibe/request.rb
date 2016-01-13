@@ -49,9 +49,9 @@ module Vibe
       if params[:api_key]
         new_api_key = params[:api_key]
         params = params.tap { |hs| hs.delete(:api_key) }
-        params.merge!({:api_key => new_api_key, :user_agent => user_agent})
+        params.merge!({:key => new_api_key, :user_agent => user_agent})
       else
-        params.merge!({:api_key => api_key, :user_agent => user_agent})
+        params.merge!({:key => api_key, :user_agent => user_agent})
       end
 
       begin

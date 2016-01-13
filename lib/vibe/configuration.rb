@@ -4,7 +4,7 @@ module Vibe
     VALID_OPTIONS_KEYS    = [:api_key, :cache, :cache_driver].freeze
     VALID_CONFIG_KEYS     = VALID_CONNECTION_KEYS + VALID_OPTIONS_KEYS
 
-    DEFAULT_ENDPOINT      = 'https://vibeapp.co/api/v1/'.freeze
+    DEFAULT_ENDPOINT      = 'https://z1.vibeapp.co/api/v1/'.freeze
     DEFAULT_METHOD        = :get.freeze
     DEFAULT_USER_AGENT    = "Vibe API Ruby Gem #{Vibe::VERSION}".freeze
 
