@@ -12,3 +12,4 @@ gemfile:
 branches:
   only:
     - master
+sudo: false
