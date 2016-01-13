@@ -14,7 +14,7 @@ Vibe API
 
 A Ruby wrapper for the Vibe REST API.
 
-> Get API key here : https://vibeapp.co/dev/
+> Get API key here : https://z1.vibeapp.co/dev/
 
 ## Installation
 
