@@ -68,7 +68,9 @@ The currently available api methods are:
 
 ## Development
 
-Questions or problems? Please post them on the [issue tracker](https://github.com/amalfra/vibe/issues). You can contribute changes by forking the project and submitting a pull request. You can ensure the tests are passing by running `rake test`.
+Questions, problems or suggestions? Please post them on the [issue tracker](https://github.com/amalfra/vibe/issues). 
+
+You can contribute changes by forking the project and submitting a pull request. You can ensure the tests are passing by running `rake test`. Feel free to contribute :heart_eyes:
 
 
 UNDER MIT LICENSE
