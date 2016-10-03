@@ -12,9 +12,11 @@ Vibe API
 
 [RDocs](http://rubydoc.info/github/amalfra/vibe/master/frames)
 
+## This gem no longer works as Vibe is now [FullContact](https://www.fullcontact.com/developer/)
+
 A Ruby wrapper for the Vibe REST API.
 
-> Get API key here : https://z1.vibeapp.co/dev/
+> Get API key here : https://vibeapp.co/dev/
 
 ## Installation
 
